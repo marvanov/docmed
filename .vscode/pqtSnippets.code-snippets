@@ -1,0 +1,237 @@
+{
+	// Place your Рабочая область wordskills-web snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	"(pqt) To console": {
+		"scope": "javascript,typescript",
+		"prefix": "log",
+		"body": [
+			"console.log(` -  -  -  -  -  $2  $1:::::`, $1)",
+		],
+		"description": "Log output to console"
+	},
+	"(pqt) To console, only text": {
+		"scope": "javascript,typescript",
+		"prefix": "logM",
+		"body": [
+			"console.log(`-  -  -  -  -  -  -   > > >   $1   < < <   -  -  -  -  -  -  -`)",
+		],
+		"description": "Log output to console"
+	},
+	"(pqt) To console with TYPE": {
+		"scope": "javascript,typescript",
+		"prefix": "logT",
+		"body": [
+			"console.log(` -  -  -  -  -  $2  $1  :  :  : type: ${typeof $1} : : : : : :`, $1)",
+		],
+		"description": "Log output to console"
+	},
+	"(pqt) To console with mark": {
+		"scope": "javascript,typescript",
+		"prefix": "logMark",
+		"body": [
+			"console.log(``);console.log(` -  -  -  -  -  $2 $1 (type: ${typeof $1}):`, $1);console.log(``);",
+		],
+		"description": "Log output to console"
+	},
+	"(pqt) devider //**********": {
+		"scope": "javascript,typescript,sass",
+		"prefix": "//***",
+		"body": [
+			"/\/**************************************************************************",
+		],
+		"description": "Log output to console"
+	},
+	"(pqt) const xxx = () => {}": {
+		"scope": "javascript,typescript",
+		"prefix": "const=()",
+		"body": [
+			"const $1 = ($2) => {",
+			"\t$2",
+			"}"
+		]
+	},
+	"(pqt) xxx.map()": {
+		"scope": "javascript,typescript",
+		"prefix": "map",
+		"body": [
+			"\n$1.map(($2, index) => {",
+			"\t$3\n});\n"
+		]
+	},
+	"(pqt) import": {
+		"scope": "javascript,typescript",
+		"prefix": "imp",
+		"body": [
+			"import {$1} from '$2'"
+		]
+	},
+	//************************************************* R E A C T  J S
+	"(pqt) Functional component": {
+		"scope": "javascript,typescript",
+		"prefix": "rfc",
+		"body": [
+			"import { useState, useEffect } from 'react'",
+			"export default function $1() {",
+			"  return <>$2</>",
+			"}"
+		]
+	},
+	"(pqt) useState": {
+		"scope": "javascript,typescript",
+		"prefix": "useSt",
+		"body": [
+			"const [$1, set $1] = useState($2)",
+		]
+	},
+	"(pqt) useEffect": {
+		"scope": "javascript,typescript",
+		"prefix": "useEf",
+		"body": [
+			"useEffect(() => {",
+			"$1",
+			"return () => {}",
+			"},[])"
+		]
+	},
+	"(pqt) Border jsx": {
+		"scope": "javascript",
+		"prefix": "bord",
+		"body": [
+			"borderWidth: 1, borderRadius: 11, borderColor: 'red',"
+		]
+	},
+	//************************************************* R E A C T   N A T I V E
+	"(pqt) Align center": {
+		"scope": "javascript,typescript",
+		"prefix": "align",
+		"body": [
+			"alignItems: 'center', alignSelf: 'center', alignContent: 'center', justifyContent: 'center',"
+		]
+	},
+	//************************************************* S A S S
+	"(pqt) Border": {
+		"scope": "sass,css",
+		"prefix": "bord",
+		"body": [
+			"border: .1rem solid $$1t14"
+		]
+	},
+	"(pqt) align": {
+		"scope": "sass",
+		"prefix": "align",
+		"body": [
+			"align-items: center",
+			"align-self: center",
+			"align-content: center",
+			"justify-content: center",
+			"text-align: center",
+			"text-vertical-align: middle",
+		]
+	},
+	//************************************************* W O R D S K I L L S
+	"(pqt) getColor All": {
+		"scope": "javascript",
+		"prefix": "getColorAll",
+		"body": [
+			"import React, { useContext } from 'react'",
+			"import { Theme } from '../contexts'\nconst { getColor } = useContext(Theme)",
+			"getColor('$1', [$2, $3, $4])",
+			"btnStyle={[getColor('t', [4, 29, 31]), getColor('t', [6, 12, 15]), getColor('t', [11, 12, 15])]}",
+			"btnStyle={[getColor('s', [5, 29, 30]), getColor('s', [7, 12, 13]), getColor('s', [11, 12, 13])]}",
+			"btnStyle={[getColor('s', [6, 29, 30]), getColor('s', [9, 12, 13]), getColor('s', [20, 12, 13])]}",
+		]
+	},
+	"(pqt) getColor": {
+		"scope": "javascript",
+		"prefix": "getColor",
+		"body": [
+			"getColor('$1', [$2, $3, $4])",
+		]
+	},
+	// const initialState = {count: 0}
+	// function reducer(state, action) {
+	//   switch (action.type) {
+	// 	case 'increment':
+	// 	  return {count: state.count + 1}
+	// 	case 'decrement':
+	// 	  return {count: state.count - 1}
+	// 	default:
+	// 	  throw new Error()
+	//   }
+	// }
+	// function Counter() {
+	//   const [state, dispatch] = useReducer(reducer, initialState, init(необязательно))
+	//   return (
+	// 	<>
+	// 	  Count: {state.count}
+	// 	  <button onClick={() => dispatch({type: 'decrement'})}>-</button>
+	// 	  <button onClick={() => dispatch({type: 'increment'})}>+</button>
+	// 	</>
+	//   )
+	// }
+	//TODO не помню откуда взял...рассмотреть, удалить не нужное
+	// "DispProp": {
+	// 	"prefix": "dprop",
+	// 	"body": [
+	// 		"const {$1} = this.props.$2"
+	// 	]
+	// },
+	// "DispState": {
+	// 	"prefix": "dstate",
+	// 	"body": [
+	// 		"const {$1} = this.state.$2"
+	// 	]
+	// },
+	"constant": {
+		"prefix": "cnt",
+		"body": [
+			"const $1 = {",
+			"\t$2",
+			"}"
+		]
+	},
+	// "Push path": {
+	// 	"prefix": "rpush",
+	// 	"body": [
+	// 		"this.props.history.push('/$1')"
+	// 	]
+	// },
+	// "Match path": {
+	// 	"prefix": "rmatch",
+	// 	"body": [
+	// 		"this.props.match.data[`$1`]"
+	// 	]
+	// },
+	// "prevent default": {
+	// 	"prefix": "pd",
+	// 	"body": [
+	// 		"$1.preventDefault()"
+	// 	]
+	// },
+	// "handle input": {
+	// 	"prefix": "this",
+	// 	"body": [
+	// 		"$1 = ($2) => {",
+	// 		"\t$3",
+	// 		"}\n"
+	// 	]
+	// },
+	// "dopost": {
+	// 	"prefix": "post",
+	// 	"body": [
+	// 		"doPost(",
+	// 		"\t'$1',\n\t$2,\n\t$3,\n\t$4\n)"
+	// 	]
+	// },
+	// "doget": {
+	// 	"prefix": "get",
+	// 	"body": [
+	// 		"doGet(",
+	// 		"\t'$1',\n\t$3,\n\t$4\n)"
+	// 	]
+	// },
+}

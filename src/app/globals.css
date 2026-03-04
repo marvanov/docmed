@@ -1,5 +1,5 @@
 @import "tailwindcss";
-
+/*
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -23,4 +23,36 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+} */
+
+
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+:root {
+  --background: #fcfdfd;
+  --foreground: #0f172a;
+  --primary: #0d9488; /* Элегантный изумрудный/бирюзовый */
+  --primary-foreground: #ffffff;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  overflow-x: hidden;
+}
+
+/* Стилизация скроллбара для элегантности */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
 }
