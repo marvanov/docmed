@@ -104,6 +104,11 @@ export default function FreeHelpPage() {
                     icon: <Pill size={24} className="text-teal-500" />,
                     title: "Назначение лечения",
                     desc: "Выписка рецептов, оформление больничных листов и направлений к узким специалистам."
+                  },
+                  {
+                    icon: <HeartPulse size={24} className="text-teal-500" />,
+                    title: "Допплерография сердца и сосудов",
+                    desc: "Ультразвуковое исследование, позволяющее оценить скорость и направление кровотока."
                   }
                 ].map((item, idx) => (
                   <div key={idx} className="flex gap-4">

@@ -1,9 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, HeartPulse, ShieldCheck, CheckCircle2, Activity, ClipboardList } from "lucide-react";
+import { ArrowRight, HeartPulse, ShieldCheck, CheckCircle2, ScanLine, Activity, ClipboardList } from "lucide-react";
 
 import { useState } from "react";
+import Link from 'next/link'
 import AppointmentModal from "../components/appointmentModal";
 
 export default function Home() {
@@ -204,6 +205,52 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+
+      <section className="py-24 relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-full opacity-20 pointer-events-none">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60rem] h-[60rem] rounded-full bg-gradient-to-tr from-blue-50 to-teal-100 blur-3xl" />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+            transition={{ duration: 0.8 }} className="bg-white rounded-[2.5rem] shadow-2xl shadow-slate-200/50 overflow-hidden border border-slate-100">
+            <div className="grid lg:grid-cols-2">
+              <div className="relative h-64 lg:h-auto min-h-[400px] overflow-hidden">
+                <img src="ultrasound.jpg" alt="УЗИ диагностика" className="w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-white via-transparent to-transparent" />
+              </div>
+
+              <div className="p-8 md:p-12 lg:p-16 flex flex-col justify-center">
+                {/* <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-sm font-medium mb-6 w-fit">
+                  <ScanLine size={16} /><span>Диагностика</span>
+                </div> */}
+
+                <h2 className="font-serif text-3xl md:text-4xl font-bold text-slate-800 mb-6">
+                  Ультразвуковая диагностика (УЗИ)</h2>
+
+                <p className="text-slate-600 mb-6 leading-relaxed">
+                  В нашей клинике проводится УЗИ органов брюшной полости, щитовидной железы, суставов и сосудов. Современный аппарат и опыт врача позволяют увидеть мельчайшие изменения.
+                </p>
+
+                <ul className="grid grid-cols-2 gap-3 mb-8">
+                  {["Органы брюшной полости", "Щитовидная железа", "Сосуды и вены", "Суставы"].map((item, idx) => (
+                    <li key={idx} className="flex items-center gap-2 text-slate-700 text-sm">
+                      <CheckCircle2 size={16} className="text-teal-500" />{item}
+                    </li>
+                  ))}
+                </ul>
+
+                <Link href="/ultrasound" className="inline-flex items-center gap-2 text-teal-600 font-bold group w-fit">
+                  Подробнее об услуге
+                  <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
 
       <AppointmentModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
 
