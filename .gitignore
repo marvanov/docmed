@@ -1,5 +1,7 @@
 /_WILL_DELETE
-
+_recycleBin/
+/.vscode
+.vscode/sftp.json
 
 # dependencies
 /node_modules

@@ -3,19 +3,20 @@
 import { motion } from "framer-motion";
 import { ArrowRight, HeartPulse, ShieldCheck, CheckCircle2, Activity, ClipboardList } from "lucide-react";
 
+import { useState } from "react";
+import AppointmentModal from "../components/appointmentModal";
+
 export default function Home() {
-  // Варианты анимаций для первого экрана
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.2, delayChildren: 0.3 },
-    },
+    visible: { opacity: 1, transition: { staggerChildren: 0.2, delayChildren: 0.3 }, },
   };
 
   const itemVariants = {
     hidden: { y: 20, opacity: 0 },
-    visible: { y: 0, opacity: 1, transition: { duration: 0.8, ease: "easeOut" } },
+    visible: { y: 0, opacity: 1, transition: { duration: 1.0, ease: "easeOut" } },
   };
 
   // Функция для плавного скролла с учетом высоты плавающей шапки
@@ -25,11 +26,7 @@ export default function Home() {
       const headerOffset = 100; // Отступ для шапки
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.scrollY - headerOffset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth"
-      });
+      window.scrollTo({ top: offsetPosition, behavior: "smooth" });
     }
   };
 
@@ -40,10 +37,7 @@ export default function Home() {
         {/* Декоративные фоновые элементы */}
         <div className="absolute top-0 right-0 -z-10 w-full h-full overflow-hidden opacity-30 pointer-events-none">
           <motion.div
-            animate={{
-              scale: [1, 1.05, 1],
-              rotate: [0, 2, -2, 0]
-            }}
+            animate={{ scale: [1, 1.05, 1], rotate: [0, 2, -2, 0] }}
             transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
             className="absolute -top-[10%] -right-[10%] w-[50vw] h-[50vw] rounded-full bg-gradient-to-br from-teal-100 to-emerald-50 blur-3xl"
           />
@@ -51,12 +45,7 @@ export default function Home() {
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            className="max-w-2xl"
-          >
+          <motion.div variants={containerVariants} initial="hidden" animate="visible" className="max-w-2xl" >
             <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-50 text-teal-700 text-sm font-medium mb-6">
               <HeartPulse size={16} />
               <span>Ваш участковый терапевт</span>
@@ -74,42 +63,30 @@ export default function Home() {
             </motion.p>
 
             <motion.div variants={itemVariants} className="flex flex-wrap gap-4">
-              <button className="px-8 py-4 rounded-full bg-teal-600 text-white font-medium hover:bg-teal-700 transition-colors shadow-lg shadow-teal-600/20 flex items-center gap-2 group">
+              <button onClick={() => setIsModalOpen(true)}
+                className="px-8 py-4 rounded-full bg-teal-600 text-white font-medium hover:bg-teal-700 transition-colors shadow-lg shadow-teal-600/20 flex items-center gap-2 group">
                 Записаться на прием
                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
               </button>
-              <button
-                onClick={scrollToAbout}
-                className="px-8 py-4 rounded-full border-2 border-slate-200 text-slate-700 font-medium hover:border-teal-600 hover:text-teal-600 transition-colors"
-              >
+              <button onClick={scrollToAbout}
+                className="px-8 py-4 rounded-full border-2 border-slate-200 text-slate-700 font-medium hover:border-teal-600 hover:text-teal-600 transition-colors">
                 Узнать больше
               </button>
             </motion.div>
           </motion.div>
 
-          {/* Иллюстрация / Фото */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, delay: 0.5 }}
-            className="relative hidden lg:block"
-          >
+          {/* изображение */}
+          <motion.div initial={{ opacity: 0, scale: 0.96 }}// initial={{ opacity: 0, }}
+            animate={{ opacity: 1, scale: 1.0 }}// animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1.1, delay: 0.5 }} className="relative hidden lg:block" >
             <div className="aspect-[4/5] rounded-t-full rounded-bl-full bg-slate-200 overflow-hidden relative shadow-2xl">
-              {/* Замените на реальное фото врача, чтобы вызвать больше доверия */}
-              <img
-                src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=1000&auto=format&fit=crop"
-                alt="Врач общей практики"
-                className="w-full h-full object-cover"
-              />
+              <img src="hero.webp" alt="Врач общей практики" className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
             </div>
 
             {/* Плавающая плашка */}
-            <motion.div
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -bottom-6 -left-12 bg-white p-6 rounded-2xl shadow-xl flex items-center gap-4"
-            >
+            <motion.div animate={{ y: [0, -10, 0] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute -bottom-6 -left-12 bg-white p-6 rounded-2xl shadow-xl flex items-center gap-4">
               <div className="w-12 h-12 rounded-full bg-teal-100 flex items-center justify-center text-teal-600">
                 <ShieldCheck size={24} />
               </div>
@@ -126,13 +103,8 @@ export default function Home() {
       <section id="about-section" className="py-24 bg-slate-50 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8 }}
-            className="text-center max-w-3xl mx-auto mb-20"
-          >
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 1.0 }} className="text-center max-w-3xl mx-auto mb-20" >
             <h2 className="font-serif text-3xl md:text-4xl font-bold text-slate-800 mb-6">
               Терапевт — ваш первый шаг к выздоровлению
             </h2>
@@ -144,12 +116,7 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-16">
 
             {/* Левая колонка - Процесс приема */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-            >
+            <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 1.0 }} >
               <h3 className="text-2xl font-bold text-slate-800 mb-6 flex items-center gap-3">
                 <ClipboardList className="text-teal-600" size={28} />
                 Как проходит прием?
@@ -180,12 +147,7 @@ export default function Home() {
             </motion.div>
 
             {/* Правая колонка - Симптомы и лечение */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-            >
+            <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 1.0 }} >
               {/* Блок с симптомами */}
               <div className="bg-gradient-to-br from-teal-600 to-emerald-700 text-white rounded-3xl p-8 mb-10 shadow-xl shadow-teal-900/10">
                 <h3 className="text-2xl font-bold mb-6 flex items-center gap-3">
@@ -242,6 +204,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <AppointmentModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+
     </div>
   );
 }

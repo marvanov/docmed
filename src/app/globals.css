@@ -1,48 +1,15 @@
 @import "tailwindcss";
-/*
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-} */
-
-
-/* @tailwind base;
-@tailwind components;
-@tailwind utilities; */
 :root {
   --background: #fcfdfd;
   --foreground: #0f172a;
-  --primary: #0d9488; /* Элегантный изумрудный/бирюзовый */
+  --primary: #0d9488;
   --primary-foreground: #ffffff;
 }
-
 body {
   background-color: var(--background);
   color: var(--foreground);
   overflow-x: hidden;
 }
-
-/* Стилизация скроллбара для элегантности */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -55,4 +22,101 @@ body {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #94a3b8;
+}
+
+/* --- Режим для слабовидящих --- */
+
+/* 1. Размеры шрифтов */
+html.font-normal { font-size: 16px; }
+html.font-large { font-size: 20px; }
+html.font-xlarge { font-size: 24px; }
+
+/* Увеличиваем специфичность для классов Tailwind */
+html.font-large body,
+html.font-large main,
+html.font-large div,
+html.font-large p,
+html.font-large span,
+html.font-large li,
+html.font-large a {
+    line-height: 1.6 !important;
+}
+
+html.font-xlarge body,
+html.font-xlarge main,
+html.font-xlarge div,
+html.font-xlarge p,
+html.font-xlarge span,
+html.font-xlarge li,
+html.font-xlarge a {
+    line-height: 1.7 !important;
+}
+
+/* 2. Цветовые схемы */
+
+/* Темная (Контрастная инверсия) */
+html.scheme-dark body {
+    background-color: #000 !important;
+    color: #fff !important;
+}
+html.scheme-dark * {
+    background-color: transparent !important; /* Убираем фоновые картинки/градиенты */
+    color: #fff !important;
+    border-color: #fff !important;
+}
+html.scheme-dark .bg-teal-600, 
+html.scheme-dark .bg-teal-700 {
+    background-color: #fff !important;
+    color: #000 !important;
+}
+html.scheme-dark img {
+    filter: grayscale(100%) invert(100%) contrast(120%); /* Инверсия картинок */
+}
+/* Корректировка шапки и футера */
+html.scheme-dark header, 
+html.scheme-dark footer {
+    background-color: #000 !important;
+    box-shadow: 0 2px 10px rgba(255,255,255,0.2) !important;
+}
+
+/* Высокий контраст (Синий текст, белый фон) */
+html.scheme-contrast body {
+    background-color: #fff !important;
+    color: #0000cc !important; /* Темно-синий */
+}
+html.scheme-contrast * {
+    color: #0000cc !important;
+    border-color: #0000cc !important;
+}
+html.scheme-contrast .bg-teal-600, 
+html.scheme-contrast .bg-teal-700,
+html.scheme-contrast .bg-slate-800,
+html.scheme-contrast .bg-slate-950 {
+    background-color: #0000cc !important;
+    color: #ffff00 !important; /* Желтый акцент */
+}
+html.scheme-contrast header {
+    background-color: #fff !important;
+    border-bottom: 2px solid #0000cc !important;
+}
+
+/* 3. Отключение изображений */
+html.img-off img {
+    opacity: 0 !important;
+    pointer-events: none !important;
+    height: 0 !important;
+    width: 0 !important;
+    overflow: hidden !important;
+}
+html.img-off .bg-slate-200 {
+    /* Скрываем декоративные блоки, которые были под картинками */
+    background-color: transparent !important;
+}
+
+/* 4. Отключение анимаций */
+html.motion-off * {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    scroll-behavior: auto !important;
 }

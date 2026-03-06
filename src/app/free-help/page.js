@@ -23,7 +23,7 @@ export default function FreeHelpPage() {
 
   const itemVariants = {
     hidden: { y: 20, opacity: 0 },
-    visible: { y: 0, opacity: 1, transition: { duration: 0.6, ease: "easeOut" } },
+    visible: { y: 0, opacity: 1, transition: { duration: 0.8, ease: "easeOut" } },
   };
 
   return (
@@ -37,7 +37,7 @@ export default function FreeHelpPage() {
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8 }}
             className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-teal-600 text-white shadow-lg shadow-teal-600/30 mb-8"
           >
             <Shield size={32} />
@@ -46,7 +46,7 @@ export default function FreeHelpPage() {
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
             className="font-serif text-4xl md:text-5xl font-bold text-slate-800 mb-6 max-w-4xl mx-auto leading-tight"
           >
             Государственные гарантии <br className="hidden md:block" />
@@ -56,7 +56,7 @@ export default function FreeHelpPage() {
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
             className="text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed"
           >
             Информация о Территориальной программе Хабаровского края на 2025 год и на плановый период 2026 и 2027 годов. Мы работаем в рамках системы ОМС, обеспечивая доступную медицину для каждого.
@@ -140,7 +140,7 @@ export default function FreeHelpPage() {
           <motion.div 
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 0.9, delay: 0.4 }}
             className="lg:col-span-1"
           >
             <div className="sticky top-32 bg-white rounded-3xl p-8 shadow-xl shadow-slate-200/50 border border-slate-100">
