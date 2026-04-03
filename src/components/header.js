@@ -2,9 +2,10 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Eye, Stethoscope } from "lucide-react";
+import { Menu, X, Eye, /*Stethoscope*/ } from "lucide-react";
 import Link from "next/link";
 import AccessibilityPanel from "../components/accessibilityPanel";
+import { content } from '../content'
 
 const navLinks = [
   { name: "Главная", href: "/" },
@@ -44,12 +45,12 @@ export default function Header() {
           {/* Логотип */}
           <Link href="/" className="flex items-center gap-2 group">
             <motion.div whileHover={{ scale: 1.4, }} className="w-15 h-15 flex-shrink-0">
-              <img src="/logo.png" alt="Логотип Докмед" className="w-full h-full object-contain" />
+              <img src="/logo.png" alt={"Логотип "+content.title} className="w-full h-full object-contain" />
             </motion.div>
             {/* <motion.div whileHover={{ rotate: 15 }} className="text-teal-600">
               <Stethoscope size={28} />
             </motion.div> */}
-            <span className="font-serif text-2xl font-bold tracking-tight text-slate-800">Докмед</span>
+            <span className="font-serif text-2xl font-bold tracking-tight text-slate-800">{content.title}</span>
           </Link>
 
 

@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { Stethoscope, Mail, Phone, MapPin, ChevronUp, Clock } from "lucide-react";
+import { content } from '../../content'
 
 export default function Footer() {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -51,7 +52,7 @@ export default function Footer() {
           <div className="flex items-center gap-2">
             <Stethoscope size={24} className="text-teal-500" />
             <span className="font-serif text-xl text-white font-bold tracking-tight">
-              Докмед
+              {content.title}
             </span>
           </div>
 
@@ -80,7 +81,7 @@ export default function Footer() {
               <Link href="/" className="flex items-center gap-2 text-white">
                 <Stethoscope size={32} className="text-teal-500" />
                 <span className="font-serif text-3xl font-bold tracking-tight">
-                  Докмед
+                  {content.title}
                 </span>
               </Link>
               <p className="text-slate-400 max-w-sm">
@@ -124,9 +125,9 @@ export default function Footer() {
 
           {/* Копирайт */}
           <div className="border-t border-slate-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-slate-500">
-            <p>© {new Date().getFullYear()} ООО "Докмед". ОГРН 1242700016118.</p>
+            <p>© {new Date().getFullYear()} {content.organization}. ОГРН {content.ogrn}.</p>
             <p className="mt-2 md:mt-0 px-4 py-2 bg-slate-800/50 rounded-lg text-slate-400">
-              Лицензия № Л041-01189-27/03100104 от 02.09.2025
+              Лицензия № {content.license}
             </p>
           </div>
         </div>

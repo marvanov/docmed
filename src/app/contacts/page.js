@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { MapPin, Phone, Mail, Clock, Navigation, ChevronRight, HeartHandshake } from "lucide-react";
+import { content } from '../../content'
 
 export default function ContactsPage() {
   // Настройки анимации для появления элементов
@@ -156,7 +157,7 @@ export default function ContactsPage() {
                 className="absolute inset-0 w-full h-full grayscale-[15%] contrast-[1.05] group-hover:grayscale-0 transition-all duration-700" 
                 frameBorder="0" 
                 allowFullScreen={true}
-                title="ООО Докмед на карте - г. Советская Гавань, ул. Ленина, д. 21"
+                title={content.organization + " на карте - г. Советская Гавань, ул. Ленина, д. 21"}
               />
 
               {/* Плавающая плашка "Маршрут" поверх карты */}

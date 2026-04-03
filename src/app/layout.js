@@ -7,10 +7,9 @@ import { AccessibilityProvider } from "../context/accessibilityContext.js";
 const montserrat = Montserrat({ subsets: ["cyrillic", "latin"], variable: "--font-sans" });
 const playfair = Roboto({ subsets: ["cyrillic", "latin"], variable: "--font-serif" });
 
-export const metadata = {
-  title: "ООО Докмед | Врач общей практики",
-  description: "Индивидуальный подход и забота о вашем здоровье.",
-};
+import { content } from '../content'
+
+export const metadata = content.metadata
 
 export default function RootLayout({ children }) {
   return (
