@@ -35,14 +35,10 @@ export default function Header() {
           }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-
-          {/* СЛАБОЗАМЕТНАЯ ССЫЛКА РАЗРАБОТЧИКА (спрятана на мобилках, видна на десктопе в самом верху экрана) */}
           <a href="https://ruslan.marvanov.ru" target="_blank" rel="noreferrer"
             className="hidden md:block absolute top-1 right-2 text-[8px] text-slate-300 hover:text-teal-500 transition-colors uppercase tracking-widest">
             разработчик
           </a>
-
-          {/* Логотип */}
           <Link href="/" className="flex items-center gap-2 group">
             <motion.div whileHover={{ scale: 1.4, }} className="w-15 h-15 flex-shrink-0">
               <img src="/logo.png" alt={"Логотип "+content.title} className="w-full h-full object-contain" />
@@ -53,8 +49,6 @@ export default function Header() {
             <span className="font-serif text-2xl font-bold tracking-tight text-slate-800">{content.title}</span>
           </Link>
 
-
-          {/* Десктопное меню */}
           <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <Link
@@ -66,19 +60,13 @@ export default function Header() {
                 <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-teal-600 transition-all duration-300 group-hover:w-full" />
               </Link>
             ))}
-
-            {/* Обновленная кнопка */}
-            <button
-              onClick={() => setAccessibilityOpen(true)}
+            <button onClick={() => setAccessibilityOpen(true)}
               className="flex items-center gap-2 px-4 py-2 rounded-full border border-teal-600 text-teal-600 text-sm font-medium hover:bg-teal-600 hover:text-white transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2"
-              aria-label="Открыть настройки для слабовидящих"
-            >
+              aria-label="Открыть настройки для слабовидящих">
               <Eye size={16} />
               <span>Для слабовидящих</span>
             </button>
           </nav>
-
-          {/* Мобильная кнопка */}
           <button
             className="md:hidden text-slate-800"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -87,8 +75,6 @@ export default function Header() {
             {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
-
-        {/* Мобильное меню */}
         <AnimatePresence>
           {mobileMenuOpen && (
             <motion.div
@@ -124,8 +110,6 @@ export default function Header() {
           )}
         </AnimatePresence>
       </motion.header>
-
-      {/* Сама панель настроек */}
       <AccessibilityPanel isOpen={accessibilityOpen} onClose={() => setAccessibilityOpen(false)} />
     </>
   );

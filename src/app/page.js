@@ -19,8 +19,6 @@ export default function Home() {
     hidden: { y: 20, opacity: 0 },
     visible: { y: 0, opacity: 1, transition: { duration: 1.0, ease: "easeOut" } },
   };
-
-  // Функция для плавного скролла с учетом высоты плавающей шапки
   const scrollToAbout = () => {
     const element = document.getElementById("about-section");
     if (element) {
@@ -33,9 +31,7 @@ export default function Home() {
 
   return (
     <div className="w-full">
-      {/* Главный экран (Hero Section) */}
       <section className="relative min-h-[85vh] flex items-center overflow-hidden">
-        {/* Декоративные фоновые элементы */}
         <div className="absolute top-0 right-0 -z-10 w-full h-full overflow-hidden opacity-30 pointer-events-none">
           <motion.div
             animate={{ scale: [1, 1.05, 1], rotate: [0, 2, -2, 0] }}
@@ -75,8 +71,6 @@ export default function Home() {
               </button>
             </motion.div>
           </motion.div>
-
-          {/* изображение */}
           <motion.div initial={{ opacity: 0, scale: 0.96 }}// initial={{ opacity: 0, }}
             animate={{ opacity: 1, scale: 1.0 }}// animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1.1, delay: 0.5 }} className="relative hidden lg:block" >
@@ -84,8 +78,6 @@ export default function Home() {
               <img src="hero.webp" alt="Врач общей практики" className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
             </div>
-
-            {/* Плавающая плашка */}
             <motion.div animate={{ y: [0, -10, 0] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               className="absolute -bottom-6 -left-12 bg-white p-6 rounded-2xl shadow-xl flex items-center gap-4">
               <div className="w-12 h-12 rounded-full bg-teal-100 flex items-center justify-center text-teal-600">
@@ -99,8 +91,6 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
-
-      {/* Блок "Осмотр терапевта" (на который скроллит кнопка) */}
       <section id="about-section" className="py-24 bg-slate-50 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
@@ -113,10 +103,7 @@ export default function Home() {
               В медицине терапия имеет статус «королевы» наук. Это широкопрофильный специалист, к которому пациенты обращаются в первую очередь. Мы помогаем взрослым пациентам с патологиями желудочно-кишечного тракта, сердца, легких и других систем организма.
             </p>
           </motion.div>
-
           <div className="grid lg:grid-cols-2 gap-16">
-
-            {/* Левая колонка - Процесс приема */}
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 1.0 }} >
               <h3 className="text-2xl font-bold text-slate-800 mb-6 flex items-center gap-3">
                 <ClipboardList className="text-teal-600" size={28} />
@@ -146,10 +133,7 @@ export default function Home() {
                 ))}
               </div>
             </motion.div>
-
-            {/* Правая колонка - Симптомы и лечение */}
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 1.0 }} >
-              {/* Блок с симптомами */}
               <div className="bg-gradient-to-br from-teal-600 to-emerald-700 text-white rounded-3xl p-8 mb-10 shadow-xl shadow-teal-900/10">
                 <h3 className="text-2xl font-bold mb-6 flex items-center gap-3">
                   <Activity size={28} />
@@ -189,8 +173,6 @@ export default function Home() {
                   </span>
                 ))}
               </div>
-
-              {/* Блок про ОМС (Специфика провинциальной медицины) */}
               <div className="p-6 border-l-4 border-teal-500 bg-teal-50/50 rounded-r-2xl">
                 <h4 className="font-bold text-teal-800 mb-2">Бесплатная помощь по полису ОМС</h4>
                 <p className="text-sm text-teal-900/80 mb-3">
@@ -205,8 +187,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-
       <section className="py-24 relative overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full opacity-20 pointer-events-none">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60rem] h-[60rem] rounded-full bg-gradient-to-tr from-blue-50 to-teal-100 blur-3xl" />

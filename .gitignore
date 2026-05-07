@@ -2,6 +2,7 @@
 _recycleBin/
 /.vscode
 .vscode/sftp.json
+.vscode
 
 # dependencies
 /node_modules

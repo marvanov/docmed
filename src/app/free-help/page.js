@@ -57,12 +57,8 @@ export default function FreeHelpPage() {
           </motion.p>
         </div>
       </section>
-
-      {/* Основной контент */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-3 gap-10">
-          
-          {/* Левая колонка - Краткое содержание программы */}
           <motion.div variants={containerVariants} initial="hidden" animate="visible" className="lg:col-span-2 space-y-8">
             <motion.div variants={itemVariants} className="bg-white rounded-3xl p-8 shadow-sm border border-slate-100">
               <h2 className="text-2xl font-bold text-slate-800 mb-6 border-b border-slate-100 pb-4">
@@ -129,14 +125,8 @@ export default function FreeHelpPage() {
               </ul>
             </motion.div>
           </motion.div>
-
-          {/* Правая колонка - Скачивание документов */}
-          <motion.div 
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.9, delay: 0.4 }}
-            className="lg:col-span-1"
-          >
+          <motion.div initial={{ opacity: 0, x: 30 }}animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.9, delay: 0.4 }} className="lg:col-span-1">
             <div className="sticky top-32 bg-white rounded-3xl p-8 shadow-xl shadow-slate-200/50 border border-slate-100">
               <h3 className="text-xl font-bold text-slate-800 mb-2">Официальный документ</h3>
               <p className="text-sm text-slate-500 mb-8">
@@ -144,7 +134,6 @@ export default function FreeHelpPage() {
               </p>
 
               <div className="space-y-4">
-                {/* ZIP Кнопка */}
                 <a href="https://ipshamgunova.ru/uploads/freemedhelp_2026-2028.zip" 
                   target="_blank" rel="noopener noreferrer"
                   className="group flex items-center justify-between w-full p-4 rounded-2xl bg-slate-50 hover:bg-teal-50 border border-slate-100 hover:border-teal-200 transition-all duration-300">
@@ -159,9 +148,7 @@ export default function FreeHelpPage() {
                   </div>
                   <DownloadCloud size={20} className="text-slate-400 group-hover:text-teal-600" />
                 </a>
-
-                {/* PDF Кнопка */}
-                {/* <a href="https://ipshamgunova.ru/uploads/freemedhelp_2025.pdf" target="_blank" rel="noopener noreferrer"
+                {/* PDF Кнопка  <a href="https://ipshamgunova.ru/uploads/freemedhelp_2025.pdf" target="_blank" rel="noopener noreferrer"
                   className="group flex items-center justify-between w-full p-4 rounded-2xl bg-slate-50 hover:bg-teal-50 border border-slate-100 hover:border-teal-200 transition-all duration-300">
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-12 bg-red-100 text-red-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
@@ -174,9 +161,7 @@ export default function FreeHelpPage() {
                   </div>
                   <DownloadCloud size={20} className="text-slate-400 group-hover:text-teal-600" />
                 </a> */}
-
-                {/* DOCX Кнопка */}
-                {/* <a href="https://ipshamgunova.ru/uploads/freemedhelp.docx"  target="_blank"  rel="noopener noreferrer"
+                {/* DOCX Кнопка    <a href="https://ipshamgunova.ru/uploads/freemedhelp.docx"  target="_blank"  rel="noopener noreferrer"
                   className="group flex items-center justify-between w-full p-4 rounded-2xl bg-slate-50 hover:bg-blue-50 border border-slate-100 hover:border-blue-200 transition-all duration-300">
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
@@ -189,7 +174,6 @@ export default function FreeHelpPage() {
                   </div>
                   <DownloadCloud size={20} className="text-slate-400 group-hover:text-blue-600" />
                 </a> */}
-
               </div>
               <div className="mt-8 pt-6 border-t border-slate-100">
                 <p className="text-xs text-slate-400 text-center">

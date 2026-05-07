@@ -24,7 +24,6 @@ export default function Footer() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Функция для скролла в самый низ при клике на свернутый футер
   const scrollToBottom = () => {
     if (!isExpanded) window.scrollTo({ top: document.body.offsetHeight, behavior: "smooth", });
   };
@@ -40,7 +39,6 @@ export default function Footer() {
         animate={{ height: isExpanded ? "auto" : "72px" }}
         transition={{ duration: 0.8, ease:[0.32, 0.72, 0, 1] }}>
 
-        {/* МИНИМАЛИСТИЧНЫЙ ВИД */}
         <div onClick={scrollToBottom}
           className={`absolute top-0 left-0 w-full h-[72px] px-6 md:px-12 flex items-center justify-between cursor-pointer hover:bg-slate-800/50 transition-colors duration-300 z-10 ${isExpanded ? "opacity-0 pointer-events-none" : "opacity-100"}`}
         >
@@ -70,12 +68,8 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* РАЗВЕРНУТЫЙ ВИД */}
         <div className={`pt-16 pb-12 px-6 md:px-12 w-full mx-auto transition-opacity duration-500 delay-100 ${isExpanded ? "opacity-100" : "opacity-0 pointer-events-none"}`}>
-          {/* ИЗМЕНЕНО: 4 колонки на больших экранах вместо 3 */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-            
-            {/* 1. Брендинг */}
             <div className="space-y-4">
               <Link href="/" className="flex items-center gap-3 text-white">
                 {/* <div className="bg-white/10 p-1.5 rounded-xl backdrop-blur-sm"> */}
@@ -85,8 +79,6 @@ export default function Footer() {
               </Link>
               <p className="text-slate-400 text-sm">Здоровье в надёжных руках: опытный терапевт в Вашем городе.</p>
             </div>
-
-            {/* 2. Навигация */}
             <div>
               <h3 className="text-white font-medium text-lg mb-4">Пациентам</h3>
               <ul className="space-y-3 text-sm">
@@ -95,8 +87,6 @@ export default function Footer() {
                 ))}
               </ul>
             </div>
-
-            {/* 3. ДОБАВЛЕНО: Партнеры / ОМС */}
             <div>
               <h3 className="text-white font-medium text-lg mb-4">Партнеры</h3>
               <ul className="space-y-3 text-sm">
@@ -112,8 +102,6 @@ export default function Footer() {
                 </li>
               </ul>
             </div>
-
-            {/* 4. Контакты */}
             <div>
               <h3 className="text-white font-medium text-lg mb-4">Контакты</h3>
               <ul className="space-y-4 text-slate-400 text-sm">
@@ -132,8 +120,6 @@ export default function Footer() {
               </ul>
             </div>
           </div>
-
-          {/* Копирайт и ссылка на разработчика */}
           <div className="border-t border-slate-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-slate-500 gap-4 text-center md:text-left">
             <div className="flex flex-col gap-1">
               <p>© {new Date().getFullYear()} {content.organization}. ОГРН {content.ogrn}.</p>
